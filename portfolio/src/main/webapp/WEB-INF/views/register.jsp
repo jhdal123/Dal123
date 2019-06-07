@@ -37,33 +37,43 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
               </div>
-              <form class="user">
+              
+              <form action="/register/joinProc" method="post">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleName" placeholder="Name">
+                    <input name="id" type="text" class="form-control form-control-user" id="exampleName" placeholder="ID">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input name="pw" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6">
+                    <input name="name"type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Name">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                  <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                  </div>
-                </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                  	회원가입
-                </a>
+                <div class="low">
+	                <button class="btn btn-primary btn-user btn-block">회원가입</button>
+	                <button onclick="location.href='/login';" class="btn btn-primary btn-user btn-block">취소</button>
+	            </div>
+              <div class="row">
+              	<div class="col">${joininfo}</div>
+              </div>
                 <hr>
-
-              </form>
+             </form>
+              
               <hr>
               <div class="text-center">
                 <a class="small" href="login.html">계정있으면 로그인</a>
               </div>
+              
+
+            
             </div>
           </div>
         </div>
@@ -74,13 +84,14 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
+
 
 </body>
 
