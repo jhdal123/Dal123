@@ -20,7 +20,7 @@
   	$('loginPage').click(function(){
   		location.href="/login";
   	});
-  </script>
+  	</script>
   
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -173,15 +173,15 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <c:if test="${not empty seesionScope.db_md}">
+              <c:if test="${not empty sessionScope.dto}">
                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-	               	 ${ sessionScope.db_md.name } 님 안녕하세요
+	               	 ${ sessionScope.dto.name } 님 안녕하세요
 	                </span>
 	                <button type="button" onclick="/login" class="btn btn-primary">로그아웃</button>
                  </a>
               </c:if>
-              <c:if test="${empty seesionScope.db_md}">
+              <c:if test="${empty sessionScope.dto}">
 	             <a class="nav-link" href="/login">
 	           	 	<button type="button" id="loginPage" class="btn btn-primary">로그인</button>
 	           	 </a>
@@ -195,7 +195,6 @@
                 </a>                
               </div>
             </li>
-
           </ul>
 
         </nav>

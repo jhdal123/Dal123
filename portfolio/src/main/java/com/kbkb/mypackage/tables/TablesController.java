@@ -26,29 +26,29 @@ public class TablesController {
 	@Autowired
 	SqlSession sqlSession; 
 	
-	//로그인
-	@RequestMapping(value = "/tables/login")
-	public String login(Model model,
-			TablesDTO param_md,
-			HttpSession session) {
-		
-		TablesDTO db_md
-			=(TablesDTO) sqlSession.selectOne("Tables.selectlogin",param_md);
-		
-		if( param_md !=null&& db_md !=null) {
-			if(param_md.getEmail().equals(db_md.getEmail() ) ) {
-				session.setAttribute("db_md", db_md);
-			}
-		}else {
-			model.addAttribute("logininfo",
-					"<span style='color:red;'>아이디나 비밀번호 확인하세요.</span>");
-		}
-			
-		model.addAttribute("menu", "tables");
-		List<TablesDTO> al = sqlSession.selectList("Tables.selectAll");
-		model.addAttribute("tablesList", al);
-		return "/";
-	}
+//	//로그인
+//	@RequestMapping(value = "/tables/login")
+//	public String login(Model model,
+//			TablesDTO param_md,
+//			HttpSession session) {
+//		
+//		TablesDTO db_md
+//			=(TablesDTO) sqlSession.selectOne("Tables.selectlogin",param_md);
+//		
+//		if( param_md !=null&& db_md !=null) {
+//			if(param_md.getEmail().equals(db_md.getEmail() ) ) {
+//				session.setAttribute("db_md", db_md);
+//			}
+//		}else {
+//			model.addAttribute("logininfo",
+//					"<span style='color:red;'>아이디나 비밀번호 확인하세요.</span>");
+//		}
+//			
+//		model.addAttribute("menu", "tables");
+//		List<TablesDTO> al = sqlSession.selectList("Tables.selectAll");
+//		model.addAttribute("tablesList", al);
+//		return "/";
+//	}
 	
 	@RequestMapping(value = "/register/join")
 	public String join(Model model,HttpSession session) {
