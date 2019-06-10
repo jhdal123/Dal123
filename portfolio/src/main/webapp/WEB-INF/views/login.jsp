@@ -40,7 +40,7 @@
   <script type="text/javascript">
 	  $(document).ready(function(){
 		  $('#loginCheck').click(function(){
-			  location.href='/loginCheck';
+			 $('.user').submit();
 		  });
 		  $('#join').click(function(){
 			  location.href='/register';
@@ -69,13 +69,13 @@
                     <h1 class="h4 text-gray-900 mb-4">환영합니다</h1>
                   </div>
                   
-                 <c:if test="${empty sessionScope.db_md }">
-                  <form action= "/tables/login" class="user" >
+                 <c:if test="${empty sessionScope.dto}">
+                  <form action= "/loginCheck" class="user" >
                     <div class="form-group">
                       <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input name="pw"type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input name="pw" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
