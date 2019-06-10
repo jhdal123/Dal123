@@ -20,13 +20,33 @@
 
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#join').click(function(){
-			location.href='/member/index';
-		});
-	});
-</script>
+   <!-- Bootstrap core JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
+  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
+
+  <!-- Page level plugins -->
+  <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.min.js"/>"></script>
+  <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="<c:url value="/resources/js/demo/datatables-demo.js"/>"></script>
+  
+  <script type="text/javascript">
+	  $(document).ready(function(){
+		  $('#loginCheck').click(function(){
+			  location.href='/loginCheck';
+		  });
+		  $('#join').click(function(){
+			  location.href='/register';
+		  });
+	  });
+  </script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -50,7 +70,7 @@
                   </div>
                   
                  <c:if test="${empty sessionScope.db_md }">
-                  <form class="user">
+                  <form action= "/tables/login" class="user" >
                     <div class="form-group">
                       <input name="email" type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
@@ -63,19 +83,17 @@
                         <label class="custom-control-label" for="customCheck">Check me out</label>
                       </div>
                     </div>
-                    <button id=join type="button" class="btn btn-primary btn-user btn-block">
+                    <button id="loginCheck" type="button" class="btn btn-primary btn-user btn-block">
                       	로그인
                     </button>
+                    <button id="join" type="button" class="btn btn-primary btn-user btn-block" >회원가입</button>
                     <hr>
-
+					<span style="color:red;">${logininfo}</span>
+<%-- 					${aaaa} --%>
                   </form>
                  </c:if>
                  
                   <hr>
-
-                  <div class="text-center">
-                    <a class="small" href="register.html">회원가입</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -88,15 +106,7 @@
 
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
-  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
+ 
 
 </body>
 

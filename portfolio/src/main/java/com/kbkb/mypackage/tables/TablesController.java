@@ -3,7 +3,6 @@ package com.kbkb.mypackage.tables;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.swing.text.TabExpander;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -27,6 +26,7 @@ public class TablesController {
 	@Autowired
 	SqlSession sqlSession; 
 	
+	//로그인
 	@RequestMapping(value = "/tables/login")
 	public String login(Model model,
 			TablesDTO param_md,
@@ -43,15 +43,18 @@ public class TablesController {
 			model.addAttribute("logininfo",
 					"<span style='color:red;'>아이디나 비밀번호 확인하세요.</span>");
 		}
-		
+			
 		model.addAttribute("menu", "tables");
 		List<TablesDTO> al = sqlSession.selectList("Tables.selectAll");
 		model.addAttribute("tablesList", al);
 		return "/";
 	}
 	
-	@RequestMapping(value = "/member/index")
-	public String login(Model model,HttpSession session) {
+	@RequestMapping(value = "/register/join")
+	public String join(Model model,HttpSession session) {
+		System.out.println("일로오나");
+//		model.addAttribute("aaaa", "aaaa values");
+//		model.addAttribute("logininfo", "login info 할까요?");
 		return "login";
 	}
 	

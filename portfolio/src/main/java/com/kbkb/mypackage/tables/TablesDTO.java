@@ -1,25 +1,16 @@
-package com.kbkb.mypackage.member;
+package com.kbkb.mypackage.tables;
 
-public class MemberDTO {
+public class TablesDTO {
 
 	private int idx;
 	private String id;
 	private String pw;
 	private String name;
 	private String email;
-	private String emailsave;
 	
 	@Override
 	public String toString() {
-		return "MemberDTO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email
-				+ ", emailsave=" + emailsave + "]";
-	}
-	
-	public String getEmailsave() {
-		return emailsave;
-	}
-	public void setEmailsave(String emailsave) {
-		this.emailsave = emailsave;
+		return "TablesDTO [idx=" + idx + ", id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + "]";
 	}
 	public int getIdx() {
 		return idx;

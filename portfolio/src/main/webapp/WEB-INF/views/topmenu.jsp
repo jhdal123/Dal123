@@ -1,6 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 
+   <!-- Bootstrap core JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
+
+  <!-- Page level plugins -->
+  <script src="<c:url value="/resources/vendor/chart.js/Chart.min.js"/>"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="<c:url value="/resources/js/demo/chart-area-demo.js"/>"></script>
+  <script src="<c:url value="/resources/js/demo/chart-pie-demo.js"/>"></script>
+  <script>
+  	$('loginPage').click(function(){
+  		location.href="/login";
+  	});
+  </script>
+  
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
@@ -152,29 +173,26 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
+              <c:if test="${not empty seesionScope.db_md}">
+                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+	               	 ${ sessionScope.db_md.name } 님 안녕하세요
+	                </span>
+	                <button type="button" onclick="/login" class="btn btn-primary">로그아웃</button>
+                 </a>
+              </c:if>
+              <c:if test="${empty seesionScope.db_md}">
+	             <a class="nav-link" href="/login">
+	           	 	<button type="button" id="loginPage" class="btn btn-primary">로그인</button>
+	           	 </a>
+           	 </c:if>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
+  
                 <a class="dropdown-item" href="/login" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
+                  	로그아웃
+                </a>                
               </div>
             </li>
 
@@ -186,19 +204,3 @@
 
 
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
-  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
-
-  <!-- Page level plugins -->
-  <script src="<c:url value="/resources/vendor/chart.js/Chart.min.js"/>"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="<c:url value="/resources/js/demo/chart-area-demo.js"/>"></script>
-  <script src="<c:url value="/resources/js/demo/chart-pie-demo.js"/>"></script>

@@ -1,13 +1,12 @@
-package com.kbkb.mypackage.member;
+package com.kbkb.mypackage.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberService {
-
+public class TablesService {
 	@Autowired
-	MemberDAO mda;
+	TablesDAO mda;
 	
 	public int Test() {
 		return mda.getTest();
@@ -16,5 +15,4 @@ public class MemberService {
 	public void doinsert() {
 		mda.insert();
 	}
-	
 }

@@ -11,6 +11,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <!-- Bootstrap core JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
+  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
+
+  <!-- Page level plugins -->
+  <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.min.js"/>"></script>
+  <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="<c:url value="/resources/js/demo/datatables-demo.js"/>"></script>
 
   <title> 뭐하지 이거</title>
 
@@ -209,7 +225,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">로그아웃하시겠습니까?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="/login">Logout</a>
@@ -218,22 +234,6 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js"/>"></script>
-  <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<c:url value="/resources/js/sb-admin-2.min.js"/>"></script>
-
-  <!-- Page level plugins -->
-  <script src="<c:url value="/resources/vendor/datatables/jquery.dataTables.min.js"/>"></script>
-  <script src="<c:url value="/resources/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="<c:url value="/resources/js/demo/datatables-demo.js"/>"></script>
 
 </body>
 
