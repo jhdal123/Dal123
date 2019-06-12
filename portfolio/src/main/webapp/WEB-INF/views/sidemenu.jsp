@@ -16,9 +16,9 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/freeboard">
+        <a class="nav-link" href="/board/list">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>커뮤니티</span></a>
+          <span>자유게시판</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/guestbook">

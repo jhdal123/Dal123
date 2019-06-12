@@ -42,4 +42,7 @@
 	
 	<context:component-scan base-package="com.kbkb.mypackage" />
 	
+	<context:component-scan base-package="com.kbkb.mypackage.domain" />
+	<context:component-scan base-package="com.kbkb.mypackage.Persistence" />
+	<context:component-scan base-package="com.kbkb.mypackage.service" />
 </beans:beans>

@@ -52,6 +52,8 @@
       </div>
       <div class = "container-fluid">
 <!--       	여 맞나 -->
+			<a href="/board/write">글 작성 </a><br/>
+			<a href="/board/list">글 목록</a>			
       	          <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
