@@ -23,7 +23,7 @@
 </head>
 <body id="page-top">
 	<div id="wrapper">
-		<!-- 사이드바 -->
+		<!-- 사이드바 --> 
 		<jsp:include page="sidemenu.jsp" />
 		<!-- 	중앙틀 -->
 		<div id="content-wrapper" class="d-flex flex-column">
