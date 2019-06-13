@@ -37,10 +37,14 @@
 <!--       	여 맞나 -->
 	<div id="root">
 	 <header>
-	  <h1>게시판</h1>
+	 
+	 	<%@include file="include/header.jsp" %>
+	 
 	 </header>
 	<hr /> 
-	 <nav>처음화면 - 글쓰기 - 로그인</nav>
+	 <nav>
+	  <%@include file="include/nav.jsp" %>
+	 </nav>
 	<hr />
 	 <section id="container">
 	  <h2>글 목록</h2>
@@ -65,6 +69,12 @@
 	
 	<hr />
 	
+	 <footer>
+	 
+ 	 <%@include file="include/footer.jsp"%>
+ 	 
+ 	 </footer>
+ 
 	<a href="/board/write">글 작성 </a><br/>
 	
 	</div>
