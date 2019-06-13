@@ -14,9 +14,9 @@ public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	private com.kbkb.mypackage.Persistence.BoardDAO dao;
-	
+
 	@Override
-	public void write(BoardVO vo) throws Exception{
+	public void write(BoardVO vo) throws Exception {
 		dao.write(vo);
 	}
 
@@ -29,18 +29,20 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void update(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		
+		dao.update(vo);
+
 	}
 
 	@Override
 	public void delete(int idx) throws Exception {
 		// TODO Auto-generated method stub
-		
+		dao.delete(idx);
+
 	}
-	
-	 // 목록
-	 @Override
-	 public List<BoardVO> list() throws Exception {
-	  return dao.list();
-	 }
+
+	// 목록
+	@Override
+	public List<BoardVO> list() throws Exception {
+		return dao.list();
+	}
 }

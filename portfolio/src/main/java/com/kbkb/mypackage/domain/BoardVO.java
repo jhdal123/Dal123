@@ -11,6 +11,12 @@ public class BoardVO {
 	private Date regDate;
 	private int viewCnt;
 	
+	
+	@Override
+	public String toString() {
+		return "BoardVO [idx=" + idx + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regDate="
+				+ regDate + ", viewCnt=" + viewCnt + "]";
+	}
 	public int getIdx() {
 		return idx;
 	}
