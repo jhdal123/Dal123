@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
- <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script> 	
+	
 </head>
 
 <body id="page-top">
@@ -35,63 +35,66 @@
       </div>
       <div class = "container-fluid">
 <!--       	여 맞나 -->
-<div id="root">
- <header>
-  <h1>게시판이다</h1>
- </header>
-
-<hr />
- 
- <nav>
-  처음화면 - 글쓰기 - 로그인
- </nav>
-
-<hr />
-
- <section id="container">
- 
-  <form role="form" method="post" autocomplete="off">
+	<div id="root">
+	 <header>
+	 
+	 	<%@include file="include/header.jsp" %>
+	 
+	 </header>
+	<hr /> 
+	 <nav>
+	  <%@include file="include/nav.jsp" %>
+	 </nav>
+	<hr />
+	 
+	 <section id="container">
+	  <h2>글 목록</h2>
+	  
+	  <table>
+	   <tr><th>글 번호</th><th>글 제목</th><th>작성자</th><th>작성일자</th></tr>
+	   
+	   <!-- 목록 시작 -->
+	   <c:forEach items="${list}" var="list">
+	   <tr>
+	    <td>${list.idx}</td>
+	    <td><a href="/board/read?idx=${list.idx}">${list.title}</a></td>
+	    <td>${list.writer}</td>
+	    <td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
+	   </tr>
+	   </c:forEach>
+	   <!-- 목록 끝 -->
+	  </table>
+	  
+<div>
+ <ul>
+  <c:if test="${pageMaker.prev}">
+   <li><a href="listPage${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
+  </c:if> 
   
-    <p>
-    <label for="idx">글 번호</label>
-    <input type="text" id="idx" name="idx" value="${delete}" readonly="readonly" />
-   </p>
-   
-   <p>정말로 삭제하시겠습니까?</p>
-   
-   <p>
-   
-    <button type="submit">예, 삭제합니다.</button><br/>
-    <button id="cancel_btn">아니오, 삭제하지 않습니다.</button>
+  <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+   <li><a href="listPage${pageMaker.makeQuery(idx)}">${idx}</a></li>
+  </c:forEach>
     
-    
-    <script>
+  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+   <li><a href="listPage${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
+  </c:if> 
+ </ul>
+</div>	
+	
+	 </section>
+	
+	<hr />
+	
+	 <footer>
+	 
+ 	 <%@include file="include/footer.jsp"%>
+ 	 
+ 	 </footer>
+ 
+	<a href="/board/write">글 작성 </a><br/>
+	
+	</div>
 
-    // 폼을 변수에 저장
-    var formObj = $("form[role='form']"); 
-    
-    // 취소 버튼 클릭
-    $("#cancel_btn").click(function(){   
-    	self.location = "/board/read?idx=${modify.idx}"
-    		   + "&page=${scri.page}"
-    		   + "&perPageNum=${scri.perPageNum}"
-    		   + "&searchType=${scri.searchType}"
-    		   + "&keyword=${scri.keyword}";
-    });
-    </script>
-   
-   </p>
-  </form>
-
- </section>
-
-<hr />
-
- <footer>
-  <p>만든이 : 나다</p>  
- </footer>
-
-</div>
 <!--  여 맞냐고 -->
 	  <jsp:include page="../footermenu.jsp"/>
 	</div>

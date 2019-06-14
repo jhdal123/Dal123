@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 
 import com.kbkb.mypackage.domain.BoardVO;
+import com.kbkb.mypackage.domain.Criteria;
+import com.kbkb.mypackage.domain.SearchCriteria;
 import com.kbkb.mypackage.Persistence.BoardDAO;
 
 @Repository
@@ -45,4 +47,31 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> list() throws Exception {
 		return dao.list();
 	}
+	
+	//¸ñ·Ï + ÆäÀÌÂ¡
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception{
+		return dao.listPage(cri);
+	}
+	
+	// °Ô½Ã¹° ÃÑ°¹¼ö
+	@Override
+	public int listCount() throws Exception{
+		return dao.listCount();
+	}
+	
+	// ¸ñ·Ï + ÆäÀÌÂ¡ +°Ë»ö
+	@Override
+	public List<BoardVO> listSearch(SearchCriteria scri) throws Exception {
+		return dao.listSearch(scri);
+	}
+	
+	// °Ë»ö °á°ú °¹¼ö
+	
+	@Override
+	
+	public int countSearch(SearchCriteria scri) throws Exception{
+		return dao.countSearch(scri);
+	}
+	
 }

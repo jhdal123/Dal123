@@ -81,9 +81,11 @@
     
     // 취소 버튼 클릭
     $("#cancel_btn").click(function(){   
-     formObj.attr("action", "/board/read?idx=" + $("#idx").val());
-     formObj.attr("method", "get");  
-     formObj.submit();
+    	self.location = "/board/read?idx=${modify.idx}"
+    		   + "&page=${scri.page}"
+    		   + "&perPageNum=${scri.perPageNum}"
+    		   + "&searchType=${scri.searchType}"
+    		   + "&keyword=${scri.keyword}";
     });
     </script>
    </p> 

@@ -32,5 +32,59 @@
 		where idx = #{idx}
 	</delete>
 
+	<select id="listPage" resultType="com.kbkb.mypackage.domain.BoardVO"
+	parameterType="com.kbkb.mypackage.domain.Criteria">
+	    select idx, title, content, writer, regDate, viewCnt
+	       from (
+	           select idx, title, content, writer, regDate, viewCnt,
+	               row_number() over(order by idx desc) as rNum
+	           from myBoard
+	     ) mb
+	    where rNum between #{rowStart} and #{rowEnd}
+	        order by idx desc
+	</select>
+
+ <!-- 게시물 총 갯수를 구하는 쿼리-->
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(idx)
+			from myBoard
+				where idx > 0
+	]]>
+	</select>
+
+
+	<!-- 검색 -->
+	<select id="listSearch" resultType="com.kbkb.mypackage.domain.BoardVO"
+	parameterType="com.kbkb.mypackage.domain.SearchCriteria">
+		select idx, title, content, writer, regDate, viewCnt
+		from ( select idx, title, content, writer, regDate, viewCnt,
+		row_number() over(order by idx desc) as rNum
+		from myBoard
+		
+		where 0=0 
+		
+		<include refid="search"></include>
+		) mb
+		where rNum between #{rowStart} and #{rowEnd} 
+		order by idx desc
+	</select>
+	
+	<sql id="search">
+	 <if test="searchType != null">
+	  <if test="searchType == 't'.toString()">and title like '%' || #{keyword} || '%'</if>
+	  <if test="searchType == 'c'.toString()">and content like '%' || #{keyword} || '%'</if>
+	  <if test="searchType == 'w'.toString()">and writer like '%' || #{keyword} || '%'</if>
+	  <if test="searchType == 'tc'.toString()">and (title like '%' || #{keyword} || '%') or (content like '%' || #{keyword} || '%')</if>
+	 </if>
+	</sql>	
+
+	<select id="countSearch" resultType="int">
+	 select count(idx)
+	  from myBoard
+	<![CDATA[ where idx > 0 ]]>
+		<include refid="search"></include>
+	</select>
+	
 </mapper>
 	
