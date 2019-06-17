@@ -16,7 +16,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="/board/list">
+        <a class="nav-link" href="/board/listSearch">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>자유게시판</span></a>
       </li>
